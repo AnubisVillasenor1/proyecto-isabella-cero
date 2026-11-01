@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { TamvScene } from '@/components/tamv-scene'
 import { Bot, ChevronDown, ChevronRight, Code2, Folder, GitBranch, Globe, MessageSquare, Play, Plus, Search, Send, Settings2, Sparkles, Terminal, X, ShieldCheck, Boxes, Database, Network, LockKeyhole, ScanSearch } from 'lucide-react'
 
 const files = ['app/page.tsx', 'app/layout.tsx', 'app/globals.css', 'lib/kernel.ts', 'README.md']
@@ -71,7 +72,7 @@ export default function Page() {
       <section className="sovereign-workspace" aria-label="Sovereign workspace modules">
         <div className="workspace-heading"><div><span className="eyebrow">METAVERSO TAMV / PLANO OPERATIVO</span><h2>{activeSurface}</h2></div><div className="workspace-signal"><span className="signal-dot" /> CROWN protected · BookPI on</div></div>
         <div className="module-rail">{sovereignModules.map((module) => { const Icon = module.icon; return <button key={module.name} className={`module-card ${activeSurface === module.name ? 'module-active' : ''}`} onClick={() => setActiveSurface(module.name)}><div className="module-icon"><Icon /></div><div className="module-copy"><strong>{module.name}</strong><span>{module.meta}</span><small>{module.detail}</small></div><b>{module.status}</b></button> })}</div>
-        <div className="graph-stage"><div className="graph-grid" /><div className="graph-orbit orbit-one" /><div className="graph-orbit orbit-two" /><div className="graph-core"><Sparkles /><span>ISABELLA<br /><small>CORE</small></span></div><div className="graph-node node-repo"><Code2 /><span>REPOSITORY</span></div><div className="graph-node node-agent"><Bot /><span>AGENT MESH</span></div><div className="graph-node node-evidence"><ShieldCheck /><span>BOOKPI</span></div><div className="graph-node node-policy"><LockKeyhole /><span>CROWN</span></div><div className="graph-caption"><span>LIVE WORKSPACE GRAPH</span><p>One action = one visible result · Every change = verifiable evidence</p></div></div>
+        <div className="graph-stage"><TamvScene /><div className="graph-caption"><span>LIVE WEBGL WORKSPACE GRAPH</span><p>Three.js scene · orbitable nodes · CROWN, BookPI, Memory Fabric and Agent Mesh</p></div></div>
       </section>
       <section className="bottom-panel"><div className="bottom-tabs"><button className={panel === 'preview' ? 'bottom-active' : ''} onClick={() => setPanel('preview')}><Globe /> Preview</button><button className={panel === 'terminal' ? 'bottom-active' : ''} onClick={() => setPanel('terminal')}><Terminal /> Terminal</button><span className="preview-url">http://localhost:3000</span></div>{panel === 'preview' ? <div className="preview-frame"><div className="preview-nav"><strong>ISABELLA CERO</strong><span>TIME TO WAKE UP</span></div><div className="preview-hero"><span>YOUR SOVEREIGN BUILD PARTNER</span><h1>Turn intent<br /><em>into reality.</em></h1><button onClick={runProject}><Play /> Start building</button></div></div> : <div className="terminal-output"><p><span className="terminal-green">isabella-zero</span> <span className="terminal-muted">$</span> pnpm dev</p><p className="terminal-muted">▲ Next.js 16 · Ready on http://localhost:3000</p><p className="terminal-green">✓ Compiled successfully · 0 errors</p></div>}      </section>
       <section className="capability-deck" aria-labelledby="capability-title">
